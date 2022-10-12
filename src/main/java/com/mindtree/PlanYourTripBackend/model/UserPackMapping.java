@@ -13,24 +13,34 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "userpack")
 public class UserPackMapping {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int userPackId;
 	private Date checkIn;
 	private Date checkOut;
 	private int numberOfPeople;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "pack_id")
 	private Pack pack;
-	
+
 	public UserPackMapping() {
-		
+
+	}
+
+	public UserPackMapping(int userPackId, Date checkIn, Date checkOut, int numberOfPeople, User user, Pack pack) {
+		super();
+		this.userPackId = userPackId;
+		this.checkIn = checkIn;
+		this.checkOut = checkOut;
+		this.numberOfPeople = numberOfPeople;
+		this.user = user;
+		this.pack = pack;
 	}
 
 	public int getUserPackId() {
@@ -86,7 +96,5 @@ public class UserPackMapping {
 		return "UserPackMapping [userPackId=" + userPackId + ", checkIn=" + checkIn + ", checkOut=" + checkOut
 				+ ", numberOfPeople=" + numberOfPeople + ", user=" + user + ", pack=" + pack + "]";
 	}
-	
-	
 
 }

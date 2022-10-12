@@ -14,7 +14,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "user")
-
 public class User {
 
 	@Id
@@ -24,6 +23,10 @@ public class User {
 	private String userName;
 	private String emailId;
 	private String password;
+	
+	public User() {
+		
+	}
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "user")
