@@ -20,6 +20,8 @@ public class UserPackMapping {
 	private Date checkIn;
 	private Date checkOut;
 	private int numberOfPeople;
+	private int numberOfRooms;
+	private double totalAmmount;
 
 	@ManyToOne
 	@JoinColumn(name = "user_id")
@@ -31,16 +33,6 @@ public class UserPackMapping {
 
 	public UserPackMapping() {
 
-	}
-
-	public UserPackMapping(int userPackId, Date checkIn, Date checkOut, int numberOfPeople, User user, Pack pack) {
-		super();
-		this.userPackId = userPackId;
-		this.checkIn = checkIn;
-		this.checkOut = checkOut;
-		this.numberOfPeople = numberOfPeople;
-		this.user = user;
-		this.pack = pack;
 	}
 
 	public int getUserPackId() {
@@ -75,6 +67,22 @@ public class UserPackMapping {
 		this.numberOfPeople = numberOfPeople;
 	}
 
+	public int getNumberOfRooms() {
+		return numberOfRooms;
+	}
+
+	public void setNumberOfRooms(int numberOfRooms) {
+		this.numberOfRooms = numberOfRooms;
+	}
+
+	public double getTotalAmmount() {
+		return totalAmmount;
+	}
+
+	public void setTotalAmmount(double totalAmmount) {
+		this.totalAmmount = totalAmmount;
+	}
+
 	public User getUser() {
 		return user;
 	}
@@ -94,7 +102,22 @@ public class UserPackMapping {
 	@Override
 	public String toString() {
 		return "UserPackMapping [userPackId=" + userPackId + ", checkIn=" + checkIn + ", checkOut=" + checkOut
-				+ ", numberOfPeople=" + numberOfPeople + ", user=" + user + ", pack=" + pack + "]";
+				+ ", numberOfPeople=" + numberOfPeople + ", numberOfRooms=" + numberOfRooms + ", totalAmmount="
+				+ totalAmmount + ", user=" + user + ", pack=" + pack + "]";
 	}
 
+	public UserPackMapping(int userPackId, Date checkIn, Date checkOut, int numberOfPeople, int numberOfRooms,
+			double totalAmmount, User user, Pack pack) {
+		super();
+		this.userPackId = userPackId;
+		this.checkIn = checkIn;
+		this.checkOut = checkOut;
+		this.numberOfPeople = numberOfPeople;
+		this.numberOfRooms = numberOfRooms;
+		this.totalAmmount = totalAmmount;
+		this.user = user;
+		this.pack = pack;
+	}
+
+	
 }
